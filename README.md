@@ -6,7 +6,7 @@ This repo contains a pretty naive network mapping example as a demo.
 
 ### Prerequisites
 
-- Docker
+- [Docker](https://docs.docker.com/engine/install/)
 - Some Cisco switches w/ SSH enabled
 
 ### Steps
