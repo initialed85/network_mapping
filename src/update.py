@@ -143,6 +143,7 @@ def _get_links_from_outputs(outputs: List[Output]) -> List[Link]:
         x.host: _parse_mac_address_table_from_output(output=x) for x in outputs
     }
 
+    # this will be all the times each switch can see any other switches (in both directions)
     partial_link_by_source_and_destination: Dict[Tuple[str, str], PartialLink] = {}
     for host, mac_address_table_entries in mac_address_table_entries_by_host.items():
         for mac_address_table_entry in mac_address_table_entries:
@@ -158,6 +159,7 @@ def _get_links_from_outputs(outputs: List[Output]) -> List[Link]:
 
             partial_link_by_source_and_destination[(host, other_host)] = partial_link
 
+    # this removes double-ups and removes the same link (but seen from the opposite side)
     links: List[Link] = []
     for (
         (source, destination),

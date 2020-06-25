@@ -53,6 +53,7 @@
             }
         };
 
+        // tack something random-ish onto the end of the request to ensure cache doesn't get us
         request.open("GET", "data.json?" + Date.now(), true);
 
         request.send();
