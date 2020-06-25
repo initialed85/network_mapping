@@ -11,12 +11,18 @@ This repo contains a pretty naive network mapping example as a demo.
 
 ### Steps
 
-- Create the container
-    - `docker run --rm -it --name network_mapping -p 8080:80`
-- Open a browser window to  http://localhost:8080 and you should be able to see a blank page
-- Update the data in the container (specify as many hosts as you like)
-    - `docker exec -it network_mapping ./update.sh --username some_user --password some_pass --host host1.org --host host2.org --host host3.org --host host4.org`
-- Back in the browser window, you should now see your network graph 
+- In a shell
+    - Build the container (from the root of this repo)
+        - `docker build -t network_mapping .`
+    - Run the container
+        - `docker run --rm -it --name network_mapping -p 8080:80`
+- In a browser winow
+    - Go to http://localhost:8080 and you should be able to see a blank page
+- In another shell
+    - Update the data in the container (specify as many hosts as you like)
+        - `docker exec -it network_mapping ./update.sh --username some_user --password some_pass --host host1.org --host host2.org --host host3.org --host host4.org`
+- In the browser window
+    - You should now be able to see your mapped network 
 
 ## How does it work?
 
